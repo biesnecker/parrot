@@ -1,0 +1,6 @@
+/target
+.DS_Store
+*.tsv
+*.csv
+audio
+Cargo.lock
