@@ -36,9 +36,6 @@ pub struct Opts {
     #[structopt(long, help = "TSV instead of CSV")]
     pub tabs: bool,
 
-    #[structopt(long, help = "Does the input file have headers?")]
-    pub headers: bool,
-
     #[structopt(long, help = "Overwrite existing files in audio directory")]
     pub force: bool,
 }
@@ -100,7 +97,6 @@ impl WorkBundle {
 
 fn get_csv_reader(options: &Opts) -> Result<csv::Reader<File>> {
     let mut rdr_builder = csv::ReaderBuilder::new();
-    rdr_builder.has_headers(options.headers);
     if options.tabs {
         rdr_builder.delimiter(b'\t');
     }
