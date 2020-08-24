@@ -97,6 +97,7 @@ impl WorkBundle {
 
 fn get_csv_reader(options: &Opts) -> Result<csv::Reader<File>> {
     let mut rdr_builder = csv::ReaderBuilder::new();
+    rdr_builder.has_headers(false);
     if options.tabs {
         rdr_builder.delimiter(b'\t');
     }
